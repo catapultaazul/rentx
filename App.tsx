@@ -1,4 +1,5 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
 import { ThemeProvider } from "styled-components";
 
@@ -15,7 +16,11 @@ import {
 
 import theme from "./src/styles/theme";
 import { Home } from "./src/screens/Home";
-import { CarDetails } from "./src/CarDetails";
+import { CarDetails } from "./src/screens/CarDetails";
+import { Schedule } from "./src/screens/Schedule";
+import { SchedulingDetails } from "./src/screens/SchedulingDetails";
+import { ScheduleComplete } from "./src/screens/ScheduleComplete";
+import Routes from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,8 +36,7 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={theme}>
-      {/* <Home /> */}
-      <CarDetails />
+      <Routes />
     </ThemeProvider>
   );
 }
