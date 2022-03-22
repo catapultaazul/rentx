@@ -137,7 +137,11 @@ export function Schedule() {
         <Calendar markedDates={markedDates} onDayPress={handleChangeDate} />
       </Content>
       <Footer>
-        <Button title="Confirmar" onPress={handleConfirmRental} />
+        <Button
+          title="Confirmar"
+          onPress={handleConfirmRental}
+          disabled={!rentalPeriod.startFormatted}
+        />
       </Footer>
     </Container>
   );
