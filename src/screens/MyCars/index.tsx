@@ -22,7 +22,7 @@ import {
   CarFooterPeriod,
   CarFooterDate,
 } from "./styles";
-import Loading from "../../components/Loading";
+import Loading from "../../components/LoadingAnimation";
 
 interface CarProps {
   car: CarDTO;
