@@ -19,7 +19,7 @@ import { Home } from "./src/screens/Home";
 import { CarDetails } from "./src/screens/CarDetails";
 import { Schedule } from "./src/screens/Schedule";
 import { SchedulingDetails } from "./src/screens/SchedulingDetails";
-import { ScheduleComplete } from "./src/screens/ScheduleComplete";
+import { Confirmation } from "./src/screens/Confirmation";
 import Routes from "./src/routes";
 
 export default function App() {

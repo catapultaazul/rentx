@@ -96,7 +96,11 @@ export function SchedulingDetails() {
         unavailable_dates,
       })
       .then((response) => {
-        navigation.navigate("ScheduleComplete");
+        navigation.navigate("Confirmation", {
+          nextScreenRoute: "Home",
+          title: "Carro alugado",
+          message: `Agora você só precisa ir\naté a cocessionária da RENTX\npegar o seu automóvel`,
+        });
       })
       .catch(() => {
         setLoading(false);
