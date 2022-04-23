@@ -21,12 +21,15 @@ import { useNavigation } from "@react-navigation/native";
 import Bullet from "../../../components/Bullet";
 import Input from "../../../components/Input";
 import { Button } from "../../../components/Button";
+import { useAuth } from "../../../hooks/auth";
 
 export default function FirstStep() {
   const navigation = useNavigation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [driversLicense, setDriversLicense] = useState("");
+
+  const { user } = useAuth();
 
   function handleBack() {
     navigation.goBack();

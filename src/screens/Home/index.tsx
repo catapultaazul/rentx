@@ -104,33 +104,6 @@ export function Home() {
           )}
         />
       )}
-      <Animated.View
-        style={[
-          myCarsButtonStyle,
-          {
-            position: "absolute",
-            bottom: 13,
-            right: 22,
-          },
-        ]}
-      >
-        <ButtonAnimated
-          onPress={handleOpenMyCars}
-          style={[styles.button, { backgroundColor: theme.colors.main }]}
-        >
-          <Ionicons name="ios-car-sport" size={32} color={theme.colors.shape} />
-        </ButtonAnimated>
-      </Animated.View>
     </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

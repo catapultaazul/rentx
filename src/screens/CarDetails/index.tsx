@@ -72,7 +72,7 @@ export function CarDetails() {
   }
 
   function handleBack() {
-    navigation.goBack();
+    navigation.navigate("Home");
   }
 
   console.log(car);
@@ -91,9 +91,7 @@ export function CarDetails() {
           { backgroundColor: theme.colors.background_secondary },
         ]}
       >
-        <Header>
-          <BackButton onPress={handleBack} />
-        </Header>
+        <Header></Header>
 
         <Animated.View style={[sliderCarsStyleAnimation]}>
           <CarImages>
@@ -112,13 +110,15 @@ export function CarDetails() {
         scrollEventThrottle={16}
       >
         <Details>
+          <BackButton onPress={handleBack} />
+
           <Description>
             <Brand>{car.brand}</Brand>
             <Name>{car.name}</Name>
           </Description>
           <Rent>
-            <Period>{car.rent.period}</Period>
-            <Price>R$ {car.rent.price}</Price>
+            <Period>{car.period}</Period>
+            <Price>R$ {car.price}</Price>
           </Rent>
         </Details>
         <Acessories>

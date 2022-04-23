@@ -23,6 +23,7 @@ import { Button } from "../../../components/Button";
 import PasswordInput from "../../../components/PasswordInput";
 import { useTheme } from "styled-components";
 import { Confirmation } from "../../Confirmation";
+import api from "../../../services/api";
 
 interface Params {
   user: {
@@ -45,7 +46,7 @@ export default function SecondStep() {
     navigation.goBack();
   }
 
-  function handleRegister() {
+  async function handleRegister() {
     if (!password || !passwordConfirm) {
       return Alert.alert("Informe a senha e a confirmação da senha");
     }
@@ -54,12 +55,24 @@ export default function SecondStep() {
       return Alert.alert("As senhas não são iguais");
     }
 
-    navigation.navigate("Confirmation", {
-      nextScreenRoute: "SignIn",
-      title: "Conta Criada!",
-      message: `Agora é so fazer login \ne aproveitar`,
-      user: { ...user, password },
-    });
+    await api
+      .post("/users", {
+        name: user.name,
+        email: user.email,
+        password: password,
+        driver_license: user.driversLicense,
+      })
+      .then(() => {
+        navigation.navigate("Confirmation", {
+          nextScreenRoute: "SignIn",
+          title: "Conta Criada!",
+          message: `Agora é so fazer login \ne aproveitar`,
+          user: { ...user, password },
+        });
+      })
+      .catch(() => {
+        Alert.alert("Opa", "não foi possível criar sua conta");
+      });
   }
 
   return (
